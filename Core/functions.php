@@ -1,0 +1,62 @@
+<?php
+
+use Core\Response;
+
+/**
+ * @param $val
+ * @return void
+ */
+function dd($val)
+{
+    echo "<pre><small>";
+    var_dump($val);
+    echo "</small></pre>";
+    die();
+}
+
+/**
+ * @param $value
+ * @return bool
+ */
+function urlIs($value)
+{
+    return $_SERVER['REQUEST_URI'] == $value;
+}
+
+/**
+ * @param int $code
+ * @return void
+ */
+function abort(int $code = 404): void
+{
+    http_response_code($code);
+    require base_path("views/{$code}.php");
+    die();
+}
+
+function authorized($condition, $status = Response::FORBIDDEN)
+{
+    if (!$condition) {
+        abort($status);
+    }
+}
+
+/**
+ * @param $path
+ * @return string
+ */
+function base_path($path)
+{
+    return BASE_PATH . $path;
+}
+
+/**
+ * @param $path
+ * @param array $attr
+ * @return string
+ */
+function view($path, $attr = [])
+{
+    extract($attr);
+    require base_path('views/' . $path);
+}
