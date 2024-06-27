@@ -8,9 +8,9 @@ use Core\Response;
  */
 function dd($val)
 {
-    echo "<pre><small>";
+    echo "<pre style='display:flex;justify-content:center;background:#26282e;color:#375fad'>";
     var_dump($val);
-    echo "</small></pre>";
+    echo "</pre>";
     die();
 }
 
