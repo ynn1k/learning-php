@@ -34,12 +34,10 @@ if ($user) {
     $db->query('INSERT INTO users (email, name, password) VALUES (:email, :name, :password)', [
         'email' => $email,
         'name' => $name,
-        'password' => $password
+        'password' => password_hash($password, PASSWORD_DEFAULT)
     ]);
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
+    login($user);
 
     header('Location: /');
     die();

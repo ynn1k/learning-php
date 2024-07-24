@@ -8,7 +8,7 @@ use Core\Response;
  */
 function dd($val)
 {
-    echo "<pre style='display:flex;justify-content:center;background:#26282e;color:#375fad'>";
+    echo "<pre style='display:flex;justify-content:center;padding:8px;background:#292c33;color:#80aaff'>";
     var_dump($val);
     echo "</pre>";
     die();
@@ -59,4 +59,23 @@ function view($path, $attr = [])
 {
     extract($attr);
     require base_path('views/' . $path);
+}
+
+/**
+ * @param $user
+ * @return void
+ */
+function login($user)
+{
+    $_SESSION['user'] = $user;
+
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+    $_SESSION = [];
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    session_destroy();
 }
