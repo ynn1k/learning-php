@@ -61,21 +61,7 @@ function view($path, $attr = [])
     require base_path('views/' . $path);
 }
 
-/**
- * @param $user
- * @return void
- */
-function login($user)
-{
-    $_SESSION['user'] = $user;
-
-    session_regenerate_id(true);
-}
-
-function logout()
-{
-    $_SESSION = [];
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-    session_destroy();
+function redirect($path) {
+    header("Location: $path");
+    exit();
 }
