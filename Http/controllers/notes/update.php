@@ -33,5 +33,4 @@ $db->query('UPDATE notes SET text = :text WHERE id = :id', [
     'text' => $_POST['text']
 ]);
 
-header('Location: /notes');
-die();
+redirect('/notes');

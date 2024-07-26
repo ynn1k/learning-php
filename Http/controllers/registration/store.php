@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Authenticator;
 use Core\Database;
 use Core\Validator;
 
@@ -27,18 +28,14 @@ if (!empty($errors)) {
 $db = App::resolve(Database::class);
 $user = $db->query('SELECT * FROM users WHERE email = :email', ['email' => $email])->find();
 
-if ($user) {
-    header('Location: /login');
-    die();
-} else {
+if (!$user) {
     $db->query('INSERT INTO users (email, name, password) VALUES (:email, :name, :password)', [
         'email' => $email,
         'name' => $name,
         'password' => password_hash($password, PASSWORD_DEFAULT)
     ]);
 
-    login($user);
-
-    header('Location: /');
-    die();
+    (new Authenticator)->login(['email' => $email, 'name' => $name]);
 }
+
+redirect('/');
