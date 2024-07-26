@@ -5,7 +5,7 @@
     <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             <form action="/login" method="post">
-                <input type="email" name="email" placeholder="Email" required> <br>
+                <input type="email" name="email" placeholder="Email" required value="<?= oldInput('email') ?>"> <br>
                 <input type="password" name="password" placeholder="Password" required>
 
                 <p>

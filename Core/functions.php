@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Session;
 
 /**
  * @param $val
@@ -61,8 +62,17 @@ function view($path, $attr = [])
     require base_path('views/' . $path);
 }
 
+/**
+ * @param $path
+ * @return void
+ */
 function redirect($path)
 {
     header("location: $path");
     exit();
+}
+
+function oldInput($key, $default = null)
+{
+    return Session::get('oldInput')[$key] ?? $default;
 }

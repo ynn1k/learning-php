@@ -20,5 +20,6 @@ if ($form->validate($email, $password)) {
 }
 
 Session::flash('errors', $form->getErrors());
+Session::flash('oldInput', ['email' => $email]);
 
 return redirect('/login');
