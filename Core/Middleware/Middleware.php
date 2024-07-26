@@ -13,7 +13,7 @@ class Middleware
     {
         if (!$key) return;
 
-        $middleware = static::MAP[$key] ?? false;
+        $middleware = self::MAP[$key] ?? false;
 
         if (!$middleware) {
             throw new \Exception("Middleware not found in $key #Yeet!");
