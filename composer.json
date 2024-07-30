@@ -1,0 +1,16 @@
+{
+    "name": "yeets/php-notes",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yannik Hewlik",
+            "email": "hi@yannik.dev"
+        }
+    ],
+    "require": {}
+}
