@@ -12,5 +12,12 @@
             "email": "hi@yannik.dev"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "pestphp/pest": "^1.23"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
