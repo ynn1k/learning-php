@@ -4,16 +4,24 @@
 
     <main>
         <form action="/login" method="post">
-            <input type="email" name="email" placeholder="Email" required value="<?= oldInput('email') ?>"> <br>
-            <input type="password" name="password" placeholder="Password" required>
+            <fieldset>
+                <label for="">
+                    Email:
+                    <input type="email" name="email" placeholder="Email" required value="<?= oldInput('email') ?>">
+                </label>
+                <label for="">
+                    Password:
+                    <input type="password" name="password" placeholder="Password" required>
+                </label>
 
-            <?php if (isset($errors["password"]) || isset($errors["email"])) : ?>
-                <p class="flash danger">
-                    <?= $errors["password"] ?? $errors["email"] ?>
-                </p>
-            <?php endif; ?>
+                <?php if (isset($errors["password"]) || isset($errors["email"])) : ?>
+                    <p class="flash danger">
+                        <?= $errors["password"] ?? $errors["email"] ?>
+                    </p>
+                <?php endif; ?>
 
-            <button>Login</button>
+                <button class="active">Login</button>
+            </fieldset>
         </form>
     </main>
 

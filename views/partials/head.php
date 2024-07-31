@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-color-scheme="dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
