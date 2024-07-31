@@ -2,12 +2,10 @@
 <?php require "partials/nav.php"; ?>
 
     <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <h1>403 Unauthorized</h1>
-            <p>
-                <a href="/">Back to Home</a>
-            </p>
-        </div>
+        <h1>403 Unauthorized</h1>
+        <p>
+            <a href="/">Back to Home</a>
+        </p>
     </main>
 
 <?php require "partials/footer.php"; ?>

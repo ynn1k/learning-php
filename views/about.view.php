@@ -3,9 +3,11 @@
 <?php require "partials/banner.php"; ?>
 
 <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <p>Hello there!</p>
-    </div>
+    <blockquote>
+        <h3>php-notes</h3>
+        <p>This is all about notes. And learning PHP.</p>
+        <cite>ynn1k</cite>
+    </blockquote>
 </main>
 
 <?php require "partials/footer.php"; ?>

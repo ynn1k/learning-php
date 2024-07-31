@@ -3,19 +3,15 @@
 <?php require base_path('views/partials/banner.php'); ?>
 
     <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <ul>
+            <?php foreach ($notes as $note) : ?>
+                <li><a href="/note?id=<?= $note['id'] ?>"><?= $note['text'] ?></a></li>
+            <?php endforeach; ?>
+        </ul>
 
-            <ul>
-                <?php foreach ($notes as $note) : ?>
-                    <li><a href="/note?id=<?= $note['id'] ?>"><?= $note['text'] ?></a></li>
-                <?php endforeach; ?>
-            </ul>
-
-            <p>
-                <a href="/note/create">New Note</a>
-            </p>
-
-        </div>
+        <p>
+            <a href="/note/create"><button class="active">New Note</button></a>
+        </p>
     </main>
 
 <?php require base_path('views/partials/footer.php'); ?>

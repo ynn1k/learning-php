@@ -3,22 +3,23 @@
 <?php require base_path('views/partials/banner.php'); ?>
 
     <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <p>
-                <?= $note['text'] ?>
-            </p>
-            <p>
-                <a href="/note/edit?id=<?= $note['id'] ?>">Edit</a>
-            </p>
-            <p>
-                <a href="/notes">Back to notes...</a>
-            </p>
-            <form action="" method="post">
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="hidden" name="id" value="<?= $note['id'] ?>">
-                <button>Delete Note</button>
-            </form>
-        </div>
+
+        <blockquote>
+            <h3>#<?= $note['id'] ?></h3>
+            <?= $note['text'] ?>
+            <cite><?= $_SESSION['user']['name'] ?></cite>
+        </blockquote>
+        <p>
+            <a href="/note/edit?id=<?= $note['id'] ?>"><button>Edit Note</button></a>
+        </p>
+
+        <form action="" method="post" class="flex space-between">
+            <a href="/notes">< Back to Notes...</a>
+
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="id" value="<?= $note['id'] ?>">
+            <button class="danger">Delete Note</button>
+        </form>
     </main>
 
 <?php require base_path('views/partials/footer.php'); ?>

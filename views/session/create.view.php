@@ -3,20 +3,18 @@
 <?php require base_path('views/partials/banner.php'); ?>
 
     <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <form action="/login" method="post">
-                <input type="email" name="email" placeholder="Email" required value="<?= oldInput('email') ?>"> <br>
-                <input type="password" name="password" placeholder="Password" required>
+        <form action="/login" method="post">
+            <input type="email" name="email" placeholder="Email" required value="<?= oldInput('email') ?>"> <br>
+            <input type="password" name="password" placeholder="Password" required>
 
-                <p>
-                    <?php if (isset($errors["password"]) || isset($errors["email"])) : ?>
-                        <?= $errors["password"] ?? $errors["email"] ?>
-                    <?php endif; ?>
+            <?php if (isset($errors["password"]) || isset($errors["email"])) : ?>
+                <p class="flash danger">
+                    <?= $errors["password"] ?? $errors["email"] ?>
                 </p>
+            <?php endif; ?>
 
-                <button>Login</button>
-            </form>
-        </div>
+            <button>Login</button>
+        </form>
     </main>
 
 <?php require base_path('views/partials/footer.php'); ?>

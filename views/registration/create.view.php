@@ -3,21 +3,32 @@
 <?php require base_path('views/partials/banner.php'); ?>
 
     <main>
-        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <form action="/register" method="post">
-                <input type="email" name="email" placeholder="Email" required> <br>
-                <input type="text" name="name" placeholder="Name" required> <br>
-                <input type="password" name="password" placeholder="Password" required>
+        <form action="/register" method="post">
+            <fieldset>
+                <legend>Create new Account</legend>
 
-                <p>
-                    <?php if (isset($errors["password"]) || isset($errors["email"])) : ?>
+                <label for="email">
+                    Email:
+                    <input type="email" name="email" placeholder="Email" required>
+                </label>
+                <label for="name">
+                    Name:
+                    <input type="text" name="name" placeholder="Name" required>
+                </label>
+                <label for="password">
+                    Password:
+                    <input type="password" name="password" placeholder="Password (min. 8 chars)" required>
+                </label>
+
+                <?php if (isset($errors["password"]) || isset($errors["email"])) : ?>
+                    <p class="flash danger">
                         <?= $errors["password"] ?? $errors["email"] ?>
-                    <?php endif; ?>
-                </p>
+                    </p>
+                <?php endif; ?>
 
                 <button>Register</button>
-            </form>
-        </div>
+            </fieldset>
+        </form>
     </main>
 
 <?php require base_path('views/partials/footer.php'); ?>
