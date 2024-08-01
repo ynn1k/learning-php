@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Session;
 use Core\Validator;
 use Core\Database;
 
@@ -21,7 +22,7 @@ if (!empty($errors)) {
 
 $db->query("INSERT INTO notes (text, user_id) VALUES (:text, :user_id)", [
     "text" => htmlspecialchars($_POST["text"]),
-    "user_id" => 1
+    "user_id" => Session::get('id')
 ]);
 
 redirect('/notes');

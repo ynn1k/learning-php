@@ -35,7 +35,9 @@ if (!$user) {
         'password' => password_hash($password, PASSWORD_DEFAULT)
     ]);
 
-    (new Authenticator)->login(['email' => $email, 'name' => $name]);
+    $newUser = $db->query('SELECT * FROM users WHERE email = :email', ['email' => $email])->find();
+
+    (new Authenticator)->login($newUser);
 }
 
 redirect('/');

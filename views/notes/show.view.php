@@ -7,7 +7,7 @@
         <blockquote>
             <h3>#<?= $note['id'] ?></h3>
             <?= $note['text'] ?>
-            <cite><?= $_SESSION['user']['name'] ?></cite>
+            <cite><?= \Core\Session::get('name') ?></cite>
         </blockquote>
         <p>
             <a href="/note/edit?id=<?= $note['id'] ?>"><button>Edit Note</button></a>
